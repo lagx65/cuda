@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1.0-devel-ubuntu18.04
+FROM nvidia/cuda:11.1-devel-ubuntu18.04
 
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
@@ -23,6 +23,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
 ENV HASHCAT_VERSION        master
 
+
 # Update & install packages for installing hashcat
 RUN apt-get update && \
     apt-get install -y wget make clinfo build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev libcurl4-openssl-dev libssl-dev
@@ -30,5 +31,3 @@ RUN apt-get update && \
 WORKDIR /root
 
 RUN git clone https://github.com/hashcat/hashcat.git && cd hashcat && git checkout ${HASHCAT_VERSION} && make install -j4
-
-
