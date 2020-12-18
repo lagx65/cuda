@@ -32,5 +32,8 @@ WORKDIR /root
 
 RUN apt install gzip
 RUN git clone https://github.com/hashcat/hashcat.git && cd hashcat && git checkout ${HASHCAT_VERSION} && make install -j4
-RUN git clone https://github.com/kennyn510/wpa2-wordlists.git && cd wpa2-wordlists/Wordlists/Bigone2016
-RUN gunzip *.gz && cat *.txt >> fullWL.txt && mv fullWL.txt ~/root
+RUN git clone https://github.com/kennyn510/wpa2-wordlists.git
+RUN cd wpa2-wordlists/Wordlists/Bigone2016
+RUN gunzip *.gz
+RUN cat *.txt >> fullWL.txt
+RUN mv fullWL.txt ~/root
