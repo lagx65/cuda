@@ -33,4 +33,4 @@ WORKDIR /root
 RUN apt install gzip
 RUN git clone https://github.com/hashcat/hashcat.git && cd hashcat && git checkout ${HASHCAT_VERSION} && make install -j4
 RUN wget https://github.com/NotSoSecure/password_cracking_rules/raw/master/OneRuleToRuleThemAll.rule
-
+RUN echo > out.txt
