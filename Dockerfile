@@ -32,5 +32,5 @@ WORKDIR /root
 
 RUN apt install gzip
 RUN git clone https://github.com/hashcat/hashcat.git && cd hashcat && git checkout ${HASHCAT_VERSION} && make install -j4
-RUN git clone https://github.com/kennyn510/wpa2-wordlists.git
+RUN wget https://download.weakpass.com/wordlists/1863/weakpass_2.gz
 
