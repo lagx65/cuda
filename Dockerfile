@@ -32,7 +32,7 @@ WORKDIR /root
 
 RUN apt-get update
 RUN apt install gzip
-RUN apt-get install megatools
+RUN apt install --assume-yes megatools
 RUN apt update && apt install --assume-yes p7zip-full
 RUN git clone https://github.com/hashcat/hashcat.git && cd hashcat && git checkout ${HASHCAT_VERSION} && make install -j4
 RUN wget https://github.com/NotSoSecure/password_cracking_rules/raw/master/OneRuleToRuleThemAll.rule
